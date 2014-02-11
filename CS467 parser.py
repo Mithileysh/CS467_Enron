@@ -47,9 +47,10 @@ for x in posts10:
     else:
         allDates[date]=c
     counter += 1
-    if counter is 10000:
+    if (counter % 100) == 0:
         print counter
-        counter=0
+
+
 
 
 # for y in allDates:
