@@ -33,6 +33,7 @@ posts2 = collections.find()  #should get ALL emails in the database
 posts10=posts2
 cFinal=Counter()
 allDates = {}
+counter=0
 
 for x in posts10:
     date = dateParser(x)
@@ -45,6 +46,11 @@ for x in posts10:
         allDates[date]=cDict
     else:
         allDates[date]=c
+    counter=counter+1
+    if counter is 10000:
+        print counter
+        counter=0
+
 
 # for y in allDates:
 #     print allDates[y]
