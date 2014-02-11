@@ -46,7 +46,7 @@ for x in posts10:
         allDates[date]=cDict
     else:
         allDates[date]=c
-    counter=counter+1
+    counter += 1
     if counter is 10000:
         print counter
         counter=0

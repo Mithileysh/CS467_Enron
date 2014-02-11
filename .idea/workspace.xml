@@ -36,7 +36,7 @@
       <file leaf-file-name="CS467 parser.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CS467 parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="21" selection-start="1327" selection-end="1327" vertical-scroll-proportion="0.35770234" vertical-offset="679" max-vertical-offset="1207">
+            <state line="48" column="15" selection-start="1321" selection-end="1321" vertical-scroll-proportion="0.35770234" vertical-offset="679" max-vertical-offset="1207">
               <folding>
                 <element signature="e#24#55#0" expanded="true" />
               </folding>
@@ -454,7 +454,11 @@
       <created>1392090539166</created>
       <updated>1392090539166</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added counter for each 10000">
+      <created>1392094359214</created>
+      <updated>1392094359214</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -498,7 +502,8 @@
     <MESSAGE value="working on mapping word counts to dates" />
     <MESSAGE value="working i hope" />
     <MESSAGE value="json me bitch" />
-    <option name="LAST_COMMIT_MESSAGE" value="json me bitch" />
+    <MESSAGE value="added counter for each 10000" />
+    <option name="LAST_COMMIT_MESSAGE" value="added counter for each 10000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -543,7 +548,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CS467 parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="21" selection-start="1327" selection-end="1327" vertical-scroll-proportion="0.35770234" vertical-offset="679" max-vertical-offset="1207">
+        <state line="48" column="15" selection-start="1321" selection-end="1321" vertical-scroll-proportion="0.35770234" vertical-offset="679" max-vertical-offset="1207">
           <folding>
             <element signature="e#24#55#0" expanded="true" />
           </folding>
