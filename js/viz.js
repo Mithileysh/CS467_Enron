@@ -1,7 +1,7 @@
 /*
  * Logic for D3 visualization of Enron Data Set
  * For CS 467, Spring 2014.
- * Authors: Mike Luo, Mike Styve, Jay Bensal, Fernando Araujo
+ * Authors: Mike Luo, Mike Styve, Jay Bensal, Fernando Araujo, Kyle Grage
  */
 
 /* Data storage */
@@ -9,11 +9,6 @@
 /* Load in the data */
 var loadData = function() {
   /*
-  alert('hi');
-  console.log("inside load data")
-  // load json file
-
-  
   d3.json('test.json', function(json){
       alert(hello + json);
   }, function(error, rows){
@@ -24,8 +19,9 @@ var loadData = function() {
   });
   */
 
-  d3.json('/subset.json', function(json){
-      console.log("hi");
+ d3.json('./subset.json', function(json){
+      console.log("Loading data...");
+      window.json = json;
   });
 
 dataIsLoaded();
@@ -41,10 +37,11 @@ var dataIsLoaded = function() {
 
 /* Make a scatterplot graph for the life expectancies*/
 var makeGraph = function(){
-  console.log("in make graph");
+  console.log("Making graph ...");
 
 }; // end makeGraph function
 
+// start the entire process
 window.addEventListener("DOMContentLoaded", function() {
   loadData();
 }, false);
