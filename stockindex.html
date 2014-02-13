@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
+<div class="text0">
+  <p>Annual Analysts Meeting. Enron rolls out its Broadband plan. By end of day, stock rises 26%.</p>
 <style>
 
 body {
@@ -23,16 +25,38 @@ body {
   stroke-width: 1.5px;
 }
 
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle {
+  fill: none;
+  stroke: steelblue;
+}
+
+.focus rect {
+  fill: none;
+  stroke:steelblue;
+}
+
+.text0 {
+  display:none;
+}
+
 </style>
 <body>
 <script src="http://d3js.org/d3.v3.js"></script>
 <script>
 
-var margin = {top: 20, right: 20, bottom: 30, left: 50},
+var margin = {top: 20, right: 50, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-var parseDate = d3.time.format("%m-%d-%Y").parse;
+var parseDate = d3.time.format("%m-%d-%Y").parse,
+    bisectDate = d3.bisector(function(d) { return d.date; }).left,
+    formatValue = d3.format(",.2f"),
+    formatCurrency = function(d) { return "$" + formatValue(d); };
 
 var x = d3.time.scale()
     .range([0, width]);
@@ -52,6 +76,8 @@ var line = d3.svg.line()
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.close); });
 
+var currText;
+
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -64,7 +90,11 @@ d3.tsv("stockdata.tsv", function(error, data) {
     d.close = +d.close;
   });
 
-  x.domain(d3.extent(data, function(d) { return d.date; }));
+  data.sort(function(a, b) {
+    return a.date - b.date;
+  });
+
+  x.domain([data[0].date, data[data.length - 1].date]);
   y.domain(d3.extent(data, function(d) { return d.close; }));
 
   svg.append("g")
@@ -75,7 +105,7 @@ d3.tsv("stockdata.tsv", function(error, data) {
   svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
-    .append("text")
+      .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
       .attr("dy", ".71em")
@@ -86,6 +116,212 @@ d3.tsv("stockdata.tsv", function(error, data) {
       .datum(data)
       .attr("class", "line")
       .attr("d", line);
+
+  svg.append("circle")
+      .attr("class", "c0")
+      .attr("r", 4.5)
+      .attr("cx", 15)
+      .attr("cy", 450)
+      .on("mouseover", function() { 
+        var circle = d3.select(this);
+        circle.attr("fill", "steelblue" );
+        currText = svg.append("text")
+          .attr("x", 15)
+          .attr("y", 440)
+          .text("Annual Analysts Meeting. Enron rolls out its Broadband plan. By end of day, stock rises 26%.");
+        //d3.select(".text0").style("display", "block");
+      })
+      .on("mouseout", function() {
+        var circle = d3.select(this);
+        circle.attr("fill", "black" );
+        currText.style("display", "none");
+       // =d3.select(".text0").style("display", "none");
+      });
+
+
+  svg.append("circle")
+      .attr("class", "c1")
+      .attr("r", 4.5)
+      .attr("cx", 173)
+      .attr("cy", 450)
+      .on("mouseover", function() { 
+        var circle = d3.select(this);
+        circle.attr("fill", "steelblue" );
+        currText = svg.append("text")
+          .attr("x", 15)
+          .attr("y", 440)
+          .text("Stock hits all-time high of $90.56. FERC orders an investigation in electricity prices in California.");
+        //d3.select(".text0").style("display", "block");
+      })
+      .on("mouseout", function() {
+        var circle = d3.select(this);
+        circle.attr("fill", "black" );
+        currText.style("display", "none");
+       // =d3.select(".text0").style("display", "none");
+      });
+
+    svg.append("circle")
+      .attr("class", "c2")
+      .attr("r", 4.5)
+      .attr("cx", 235)
+      .attr("cy", 450)
+      .on("mouseover", function() { 
+        var circle = d3.select(this);
+        circle.attr("fill", "steelblue" );
+        currText = svg.append("text")
+          .attr("x", 15)
+          .attr("y", 440)
+          .text("FERC investigation exonerates Enron for any wrongdoing in California.");
+        //d3.select(".text0").style("display", "block");
+      })
+      .on("mouseout", function() {
+        var circle = d3.select(this);
+        circle.attr("fill", "black" );
+        currText.style("display", "none");
+       // =d3.select(".text0").style("display", "none");
+      });
+
+    svg.append("circle")
+      .attr("r", 4.5)
+      .attr("cx", 270)
+      .attr("cy", 450)
+      .on("mouseover", function() { 
+        var circle = d3.select(this);
+        circle.attr("fill", "steelblue" );
+        currText = svg.append("text")
+          .attr("x", 15)
+          .attr("y", 440)
+          .text("Enron announces that COO Jeffrey Skilling will take over as CEO. Kenneth Lay will remain as chairman");
+        //d3.select(".text0").style("display", "block");
+      })
+      .on("mouseout", function() {
+        var circle = d3.select(this);
+        circle.attr("fill", "black" );
+        currText.style("display", "none");
+       // =d3.select(".text0").style("display", "none");
+      });
+
+    svg.append("circle")
+      .attr("r", 4.5)
+      .attr("cx", 360)
+      .attr("cy", 450)
+      .on("mouseover", function() { 
+        var circle = d3.select(this);
+        circle.attr("fill", "steelblue" );
+        currText = svg.append("text")
+          .attr("x", 15)
+          .attr("y", 440)
+          .text("False or Misleading Filings with the SEC.");
+        //d3.select(".text0").style("display", "block");
+      })
+      .on("mouseout", function() {
+        var circle = d3.select(this);
+        circle.attr("fill", "black" );
+        currText.style("display", "none");
+       // =d3.select(".text0").style("display", "none");
+      });
+
+    svg.append("circle")
+      .attr("r", 4.5)
+      .attr("cx", 415)
+      .attr("cy", 450)
+      .on("mouseover", function() { 
+        var circle = d3.select(this);
+        circle.attr("fill", "steelblue" );
+        currText = svg.append("text")
+          .attr("x", 15)
+          .attr("y", 440)
+          .text("FERC finally institutes price caps. The California energy crisis ends. ");
+        //d3.select(".text0").style("display", "block");
+      })
+      .on("mouseout", function() {
+        var circle = d3.select(this);
+        circle.attr("fill", "black" );
+        currText.style("display", "none");
+       // =d3.select(".text0").style("display", "none");
+      });
+
+    svg.append("circle")
+      .attr("r", 4.5)
+      .attr("cx", 522)
+      .attr("cy", 450)
+      .on("mouseover", function() { 
+        var circle = d3.select(this);
+        circle.attr("fill", "steelblue" );
+        currText = svg.append("text")
+          .attr("x", 15)
+          .attr("y", 440)
+          .text("Enron announces the SEC inquiry has been upgraded to a formal investigation.");
+        //d3.select(".text0").style("display", "block");
+      })
+      .on("mouseout", function() {
+        var circle = d3.select(this);
+        circle.attr("fill", "black" );
+        currText.style("display", "none");
+       // =d3.select(".text0").style("display", "none");
+      });
+
+    svg.append("circle")
+      .attr("r", 4.5)
+      .attr("cx", 550)
+      .attr("cy", 450)
+      .on("mouseover", function() { 
+        var circle = d3.select(this);
+        circle.attr("fill", "steelblue" );
+        currText = svg.append("text")
+          .attr("x", 15)
+          .attr("y", 440)
+          .text("Enron files for Chapter 11 bankruptcy protection, at the time the largest bankruptcy in US history. ");
+        //d3.select(".text0").style("display", "block");
+      })
+      .on("mouseout", function() {
+        var circle = d3.select(this);
+        circle.attr("fill", "black" );
+        currText.style("display", "none");
+       // =d3.select(".text0").style("display", "none");
+      });
+
+  var focus = svg.append("g")
+      .attr("class", "focus")
+      .style("display", "none");
+
+  focus.append("circle")
+      .attr("r", 4.5);
+
+  focus.append("rect")
+      .attr("y", -(2*(height + margin.top + margin.bottom))/2)
+      .attr("width", .5)
+      .attr("height", 2*(height + margin.top + margin.bottom)); 
+
+  focus.append("text")
+      .attr("x", 9)
+      .attr("dy", ".35em");
+
+  svg.append("rect")
+      .attr("class", "overlay")
+      .attr("width", width)
+      .attr("height", height)
+      .on("mouseover", function() { focus.style("display", null); })
+      .on("mouseout", function() { focus.style("display", "none"); })
+      .on("mousemove", mousemove);
+
+  function mousemove() {
+    var x0 = x.invert(d3.mouse(this)[0]),
+        i = bisectDate(data, x0, 1),
+        d0 = data[i - 1],
+        d1 = data[i],
+        d = x0 - d0.date > d1.date - x0 ? d1 : d0;
+    focus.attr("transform", "translate(" + x(d.date) + "," + y(d.close) + ")");
+    focus.select("text").text(getDate(d.date) + " "+ formatCurrency(d.close));
+  }
+
+  function getDate(date){
+    var day = date.getDate(),
+        month = date.getMonth() +1,
+        year = date.getFullYear();
+    return month +"-"+day+"-"+year ;
+  }
+
 });
 
 </script>
