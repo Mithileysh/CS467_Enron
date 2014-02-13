@@ -34,7 +34,7 @@ var makeGraph = function(){
 	var chart;
 	nv.addGraph(function() {
 	  chart = nv.models.stackedAreaChart()
-	                .width(1000).height(750)
+	                .width(1000).height(350)
 	                .useInteractiveGuideline(true)
 	                .x(function(d) { return d[0] })
 	                .y(function(d) { return d[1] })
