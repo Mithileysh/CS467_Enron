@@ -19,9 +19,18 @@ var loadData = function() {
   });
   */
 
- d3.json('./subset.json', function(json){
+ d3.json('./test.json', function(json){
       console.log("Loading data...");
       window.json = json;
+
+      for(var date in json){
+        console.log(date);
+        for(var word in json[date]){
+          if (json[date][word] > 5){
+          console.log(word + ":" + json[date][word]);
+          }
+        } // loop through words
+      } // loop through dates
   });
 
 dataIsLoaded();
