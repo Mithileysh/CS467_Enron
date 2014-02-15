@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta charset="utf-8">
+	<title>Enron Visualization</title>
+
+	<style>
+		body {
+		  overflow-y:scroll;
+		}
+
+		text {
+		  font: 12px sans-serif;
+		}
+
+		.main-env {
+			height: 100%;
+			width: 100%;
+		}
+
+		.axis path,
+		.axis line {
+		  fill: none;
+		  stroke: #000;
+		  shape-rendering: crispEdges;
+		}
+
+		.x.axis path {
+		  display: none;
+		}
+
+		.line {
+		  fill: none;
+		  stroke: steelblue;
+		  stroke-width: 1.5px;
+		}
+
+		.overlay {
+		  fill: none;
+		  pointer-events: all;
+		}
+
+		.focus circle {
+		  fill: none;
+		  stroke: steelblue;
+		}
+
+		.focus rect {
+		  fill: none;
+		  stroke:steelblue;
+		}
+
+		.text0 {
+		  display:none;
+		}
+	</style>
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="css/nv.d3.css" rel="stylesheet" type="text/css">
+	<script src="d3/d3.min.js"></script>
+	<script src="d3/nv.d3.js"></script>
+	<script src="js/graph2.js"></script>
+
+	<script src="src/utils.js"></script>
+	<script src="src/models/axis.js"></script>
+	<script src="src/tooltip.js"></script>
+	<script src="src/interactiveLayer.js"></script>
+	<script src="src/models/legend.js"></script>
+	<script src="src/models/axis.js"></script>
+	<script src="src/models/scatter.js"></script>
+	<script src="src/models/stackedArea.js"></script>
+	<script src="src/models/stackedAreaChart.js"></script>
+
+	<body>
+		<div class="container">
+	   		<h1>Enron Visualization</h1>
+			<div class="main-env">
+	   			<svg id="chart1"></svg>
+	  		</div>
+		</div>
+	</body>
+</html>

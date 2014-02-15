@@ -1,0 +1,21 @@
+Installation Instructions:
+
+1. Download the source code. 
+2. Run a local webserver. An easy way to do this is with python -m SimpleHTTPServer. (python must be installed). 
+3. Go to to localhost:8000 in a browser. 
+4. Navigate to the project directory. Index.html should load and contains both of the graphs in our visualization. 
+
+
+Member Roles
+
+Michael Styve: Created the interactive Enron stock graph in D3 and included the dates of interest from the Enron historical timeline on the same chart.
+
+Fernando Araujo: Focused mainly on the visualization design, utilized Adobe Flash to create the planned version of our visualization. Worked on creating both presentations and gave critical feedback for the possible issues in our visualization, including ethical and user related. Researched story and key events of Enron. Made sure that our project submission fulfilled all rubric requirements.
+
+Kyle Grage: Came up with the rough draft for the original design, came up with story and general questions for visualization to answer, worked heavily on both presentations, researched events to go along with stock graph, conversions to JSON files when needed, provided feedback for visualizations.
+
+Michael Luo: Implemented MongoDB of Enron Email Corpus on Amazon EC2 instance for all members to access and query, wrote python scripts to retrieve all emails and parse all emails by date and words in body, wrote word frequency analysis script, wrote JSON dump scripts, wrote scripts to filter words. 
+
+Jay Bensal: I took the parsed JSON data that Mike L. provided me and used it to implement the main graph of word frequencies over time in NVD3. I also took Mike S’s stock graph and combined it with the word frequency graph for our final visualization. 
+
+
